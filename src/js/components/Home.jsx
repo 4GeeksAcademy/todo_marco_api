@@ -66,7 +66,9 @@ const Home = () => {
 
 
 
-	
+	useEffect(() => {
+		obtenerTareas()
+	}, [])
 
 
 
