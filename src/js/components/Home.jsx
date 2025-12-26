@@ -1,7 +1,7 @@
 
 
 //include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+
 import React, { useState, useEffect } from "react";
 //create your first component
 
@@ -66,15 +66,13 @@ const Home = () => {
 
 
 
-	useEffect(() => {
-		obtenerTareas()
-	}, [])
+	
 
 
 
 
 
-	const handleBundle = async () => {
+	const crearTarea = async () => {
 		if (inputValue.trim() === "") {
 			setshowAlert(true)
 			return ;
@@ -130,6 +128,9 @@ const Home = () => {
 	}
 
 
+useEffect(() => {
+		obtenerTareas()
+	}, [])
 
 
 
@@ -137,14 +138,16 @@ const Home = () => {
 		<div className="Container-list">
 
 
-			<h1 className="Titulo text-center ">Cosas por hacer </h1>
+			<h1 className="Titulo text-center "> Cosas por hacer </h1>
 			{showAlert && (
 				<div className="alert alert-warning" role="alert">
 					Todos los campos son obligatorios
 				</div>
 			)}
 			<div className="text-center">
-				<input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+				<input type="text" 
+				value={inputValue} 
+				onChange={(e) => setInputValue(e.target.value)} />
 				<ul>
 					{lista.map((tarea, index) => (
 						<li
@@ -164,7 +167,7 @@ const Home = () => {
 					)
 					)}
 				</ul>
-				<button className="button-añadir" type="button" onClick={handleBundle}>Añadir</button>
+				<button className="button-añadir" type="button" onClick={crearTarea}>Añadir</button>
 			</div>
 
 
